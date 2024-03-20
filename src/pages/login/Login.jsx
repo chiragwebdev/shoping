@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from "react-router-dom";
 import { userlogout } from '../../redux/userdataSlice';
@@ -26,7 +26,7 @@ function Login() {
         e.preventDefault();
         let err = {}
         const userloaded = JSON.parse(localStorage.getItem("shopping data"))
-        let errors = 0;
+
         const ab = userloaded.filter((item) => {
             return item.email === userlogindata.email
         })

@@ -19,7 +19,6 @@ function Navbar() {
         dispatch(userlogout(false))
         localStorage.removeItem("userDetails")
     }
-
     useEffect(() => {
         if (localStorage.getItem("userDetails")) {
             const userdet = localStorage.getItem("userDetails")
@@ -52,7 +51,7 @@ function Navbar() {
                                             <li><Link to="/about">About</Link></li>
                                             <li><Link to="/product">Product</Link></li>
                                             <li><Link to="/contact">Contact</Link></li>
-                                            {logout && <li><Link to="/home">Dashbord</Link></li>}
+                                            {logout && <li><Link to="/dashbord">Dashbord</Link></li>}
                                             {logout && <li><Link>{userName}</Link></li>}
                                         </ul>
                                     </div>
@@ -62,7 +61,8 @@ function Navbar() {
                                         <li><Link to="/about">About</Link></li>
                                         <li><Link to="/product">Product</Link></li>
                                         <li><Link to="/contact">Contact</Link></li>
-                                        {logout && <li><Link to="/home">Dashbord</Link></li>}
+                                        {logout && <li><Link to="/dashbord">Dashbord</Link></li>}
+                                        {logout && <li><Link>{userName}</Link></li>}
                                     </ul>
                             }
 

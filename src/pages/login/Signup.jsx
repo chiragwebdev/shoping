@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from "react-router-dom";
-import { fromdata, userlogout } from '../../redux/userdataSlice';
+import { userlogout } from '../../redux/userdataSlice';
 import { BiShow, BiHide } from "react-icons/bi";
 
 function Signup() {
@@ -35,6 +35,7 @@ function Signup() {
                 return item.email === user.email
             })
         }
+        // console.log(matchEmail)
 
         const { username, email, password, repassword } = user
 
@@ -46,12 +47,12 @@ function Signup() {
 
         if (email.trim() === "") {
             err.email = "Please enter the valid email"
-        } else if (matchEmail == user.email) {
+        } else if (matchEmail.length > 0) {
             err.email = "The email address already exists"
         }
 
         if (password.trim() === "") {
-            err.password = "Plase enter the user password"
+            err.password = "Plase enter the password"
         } else if (password.trim().length < 6) {
             err.password = "Passwords must be six or more characters"
         }
@@ -60,8 +61,9 @@ function Signup() {
             err.repassword = "Please enter the confirm password"
         }
 
-        setErrors({ ...err })
-        // console.log(Object.keys(err))
+        // else console.log("first")
+        setErrors(err)
+        // console.log(err)
         return Object.keys(err).length < 1
     }
     const dispatch = useDispatch()
@@ -73,7 +75,6 @@ function Signup() {
 
         if (validform) {
 
-            // dispatch(fromdata({ ...user, id: udata.length + 1, loginstatus: true })) 
             let storedUser = JSON.parse(localStorage.getItem('shopping data'));
 
             if (localStorage.getItem("shopping data") == null) {

@@ -12,7 +12,6 @@ export const userdataSlice = createSlice({
     initialState,
     reducers: {
         fromdata: (state, action) => {
-            state.udata = [...state.udata, action.payload]
             state.oneuserdata = [...state.udata, action.payload]
         },
         userlogout: (state, action) => {

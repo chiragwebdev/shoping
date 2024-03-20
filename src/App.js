@@ -7,6 +7,8 @@ import Home from './pages/Home'
 import Product from './pages/Product'
 import Login from './pages/login/Login'
 import Signup from './pages/login/Signup'
+import Contact from './pages/Contact'
+import Dashbord from './pages/Dashbord'
 
 
 
@@ -27,6 +29,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/product" element={<Product />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/dashbord" element={<Dashbord />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
